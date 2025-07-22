@@ -1,0 +1,17 @@
+
+services:
+  dashboard-ui:
+    image: ${DOCKER_REGISTRY:-ghcr.io/sentiric}/sentiric-dashboard-ui:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # Build sırasında API adresini React app'e geçirmek için
+      args:
+        - REACT_APP_API_URL=${REACT_APP_API_URL}
+    container_name: sentiric_dashboard_ui
+    # Yerel test için 3000 portunu açalım
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+
+# Bu servisin diğerleriyle direkt konuşmasına gerek yok, sadece API Gateway'e istek atar.

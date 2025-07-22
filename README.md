@@ -11,6 +11,7 @@
 *   JavaScript/TypeScript (e.g., React, Vue, Angular)
 *   Node.js (for development server)
 *   Web-based charting and UI libraries.
+* we can use Next.js (SSR devre dışı) + Tremor	next export ile static
 
 **API Interactions (As an API Client):**
 *   Consumes APIs provided by `sentiric-api-gateway-service` (which in turn calls `sentiric-user-service`, `sentiric-dialplan-service`, `sentiric-cdr-service`, etc.).
