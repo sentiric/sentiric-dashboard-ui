@@ -1,17 +1,43 @@
+networks:
+  sentiric-net:
+    name: ${NETWORK_NAME:-sentiric-net}
+    driver: bridge
 
 services:
+  api-gateway:
+    build:
+      context: ../sentiric-api-gateway-service
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: sentiric-api-gateway-service
+    env_file:
+      - ./.env
+    volumes:
+      - ../sentiric-infrastructure/tls/certs:/etc/sentiric/tls:ro
+    ports:
+      - "${API_GATEWAY_SERVICE_PORT}:${API_GATEWAY_SERVICE_PORT}"
+    networks:
+      - sentiric-net
+    profiles:
+      - default
+    restart: always
+    
   dashboard-ui:
-    image: ${DOCKER_REGISTRY:-ghcr.io/sentiric}/sentiric-dashboard-ui:${TAG:-latest}
     build:
       context: .
       dockerfile: Dockerfile
-      # Build sırasında API adresini React app'e geçirmek için
       args:
-        - REACT_APP_API_URL=${REACT_APP_API_URL}
-    container_name: sentiric_dashboard_ui
-    # Yerel test için 3000 portunu açalım
+        SERVICE_NAME: sentiric-dashboard-ui
+    env_file:
+      - ./.env
+    volumes:
+      - ../sentiric-infrastructure/tls/certs:/etc/sentiric/tls:ro
     ports:
-      - "3000:80"
-    restart: unless-stopped
+      - "${DASHBOARD_UI_PORT}:${DASHBOARD_UI_PORT}"
+    networks:
+      - sentiric-net
+    profiles:
+      - default
+    restart: always
 
 # Bu servisin diğerleriyle direkt konuşmasına gerek yok, sadece API Gateway'e istek atar.
