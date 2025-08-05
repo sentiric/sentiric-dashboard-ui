@@ -1,0 +1,18 @@
+# Dependency directories
+node_modules
+npm-debug.log
+.next
+out
+
+# Build artifacts and cache
+build
+dist
+.cache
+
+# System files
+.DS_Store
+
+# Local env files
+.env
+.env.local
+.env.*.local

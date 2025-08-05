@@ -1,36 +1,40 @@
-# Sentiric Dashboard UI
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-**Description:** A central web interface for system administrators and business analysts to monitor, manage, and generate reports for the Sentiric platform.
+## Getting Started
 
-**Core Responsibilities:**
-*   Providing a user-friendly, visual web-based administration panel.
-*   Consuming APIs from other services (via `sentiric-api-gateway-service`) to visualize data and perform management operations (e.g., user management, dialplan configuration, CDR reports).
-*   Offering insights into platform performance and usage.
+First, run the development server:
 
-**Technologies:**
-*   JavaScript/TypeScript (e.g., React, Vue, Angular)
-*   Node.js (for development server)
-*   Web-based charting and UI libraries.
-* we can use Next.js (SSR devre dışı) + Tremor	next export ile static
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-**API Interactions (As an API Client):**
-*   Consumes APIs provided by `sentiric-api-gateway-service` (which in turn calls `sentiric-user-service`, `sentiric-dialplan-service`, `sentiric-cdr-service`, etc.).
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-**Local Development:**
-1.  Clone this repository: `git clone https://github.com/sentiric/sentiric-dashboard-ui.git`
-2.  Navigate into the directory: `cd sentiric-dashboard-ui`
-3.  Install dependencies: `npm install`
-4.  Create a `.env` file from `.env.example` to configure the API Gateway URL.
-5.  Start the development server: `npm start` (or `npm run dev`).
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-**Configuration:**
-Refer to `config/` or `src/` directories and `.env.example` for UI-specific configurations, including API endpoint URLs.
+[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-**Deployment:**
-This is a frontend application, typically deployed as static files served by a web server (e.g., Nginx) or a CDN. Refer to `sentiric-infrastructure`.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 
-**Contributing:**
-We welcome contributions! Please refer to the [Sentiric Governance](https://github.com/sentiric/sentiric-governance) repository for coding standards and contribution guidelines.
+This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-**License:**
-This project is licensed under the [License](LICENSE).
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
