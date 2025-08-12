@@ -1,40 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📊 Sentiric Dashboard UI
 
-## Getting Started
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Framework](https://img.shields.io/badge/framework-Next.js_14-black.svg)](https://nextjs.org/)
+[![Styling](https://img.shields.io/badge/styling-Tailwind_CSS_&_Tremor-blue.svg)]()
 
-First, run the development server:
+**Sentiric Dashboard UI**, sistem yöneticileri ve süpervizörler için platformu izleme, yönetme ve raporlama arayüzüdür. Modern, reaktif ve kullanıcı dostu bir deneyim sunmak için **Next.js (React)** ve **TypeScript** ile geliştirilmiştir.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Temel Sorumluluklar
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*   **Canlı İzleme (Monitoring):** Aktif çağrıları, agent durumlarını ve sistem sağlığını gösteren canlı dashboard'lar sunar.
+*   **Yönetim (Management):** Kullanıcılar, dialplan'ler, anonslar ve diğer platform kaynakları için CRUD (Oluştur, Oku, Güncelle, Sil) arayüzleri sağlar.
+*   **Raporlama (Reporting):** `cdr-service`'ten alınan verileri kullanarak, çağrı hacimleri, ortalama konuşma süreleri ve agent performansı gibi metrikleri görselleştiren detaylı raporlar sunar.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Teknoloji Yığını
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+*   **Framework:** Next.js 14 (App Router)
+*   **Dil:** TypeScript
+*   **Styling:** Tailwind CSS
+*   **UI Bileşenleri:** Tremor (Veri görselleştirme için), Headless UI
+*   **State Management:** Zustand (basit ve güçlü durum yönetimi için)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 🔌 API Etkileşimleri
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Bu arayüz, platformla **sadece** `sentiric-api-gateway-service` üzerinden konuşur.
 
-## Learn More
+*   **Giden (İstemci):**
+    *   `sentiric-api-gateway-service` (REST/JSON): Tüm veri ve yönetim isteklerini bu merkezi kapıya yapar.
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Yerel Geliştirme
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+1.  **Bağımlılıkları Yükleyin:** `npm install`
+2.  **Geliştirme Sunucusunu Başlatın:** `npm run dev`
+3.  Tarayıcınızda `http://localhost:3000` adresini açın.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🐳 Docker ile Dağıtım
 
-## Deploy on Vercel
+`Dockerfile`, multi-stage build tekniğini kullanarak statik olarak export edilmiş Next.js çıktılarını minimal bir **Nginx** imajı üzerinde sunar. Bu, son derece küçük ve güvenli bir üretim imajı oluşturur.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Katkıda Bulunma
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Katkılarınızı bekliyoruz! Lütfen projenin ana [Sentiric Governance](https://github.com/sentiric/sentiric-governance) reposundaki kodlama standartlarına ve katkıda bulunma rehberine göz atın.
+
+---
+## 🏛️ Anayasal Konum
+
+Bu servis, [Sentiric Anayasası'nın (v11.0)](https://github.com/sentiric/sentiric-governance/blob/main/docs/blueprint/Architecture-Overview.md) **Zeka & Orkestrasyon Katmanı**'nda yer alan merkezi bir bileşendir.
