@@ -1,18 +1,45 @@
-# Dependency directories
+# Node modules - genelde imaja hosttan kopyalanmaz, container içinde kurulur
 node_modules
-npm-debug.log
-.next
-out
 
-# Build artifacts and cache
-build
+# Build çıktıları
 dist
-.cache
+build
 
-# System files
+# Git dosyaları
+.git
+.gitignore
+
+# IDE/editor ayar dosyaları
+.vscode
+.idea
+*.swp
+
+# Sistem dosyaları
 .DS_Store
+Thumbs.db
 
-# Local env files
+# Log dosyaları
+*.log
+
+# Geçici dosyalar
+*.tmp
+*.temp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Çevresel değişken dosyaları (gizli tutmak gerekebilir)
 .env
-.env.local
-.env.*.local
+.env.*   # Örneğin .env.development, .env.production
+
+# Test çıktıları ve coverage
+coverage
+*.lcov
+
+# Docker-compose ve diğer docker yapılandırma dosyaları
+docker-compose.yml
+docker-compose.override.yml
+
+# tsconfig, package-lock vs. genellikle dahil edilir ama istenirse hariç tutulabilir
+# tsconfig.json
+# package-lock.json
